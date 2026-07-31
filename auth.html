@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión / Registro - Trading con Propósito</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="auth-page">
+
+    <!-- Top Navigation Link -->
+    <div class="auth-top-bar">
+        <a href="index.html" class="auth-back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Volver a la Página Principal
+        </a>
+    </div>
+
+    <main class="auth-main">
+        <div class="auth-container">
+            <div class="auth-card">
+                
+                <!-- Logo Header -->
+                <div class="auth-header">
+                    <a href="index.html" class="auth-logo-link">
+                        <img src="image.png" alt="Trading con Propósito Logo" class="auth-logo-img">
+                    </a>
+                    <h1 class="auth-title">Bienvenido</h1>
+                    <p class="auth-subtitle">Accede a tu cuenta o regístrate para entrar al tablero de trading profesional.</p>
+                </div>
+
+                <!-- Google Notice & Message Box -->
+                <div id="g-signin-button" style="margin-bottom: 16px; display:none;"></div>
+                <p id="google-notice" class="small-text" style="display:none;"></p>
+                <div id="auth-message" class="auth-message-box" style="display:none;"></div>
+
+                <!-- Auth Form -->
+                <form id="auth-form" class="auth-form" data-mode="register"></form>
+
+                <!-- Toggle Mode Link -->
+                <div class="auth-toggle-wrapper">
+                    <a href="#" id="auth-login-toggle" class="auth-toggle-link">¿Ya tienes cuenta? Inicia sesión aquí</a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="auth.js?cachebust=3"></script>
+</body>
+</html>

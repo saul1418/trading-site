@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Trading Options | Bots Automatizados & IA</title>
+    <meta name="description" content="Comunidad de Bots Automatizados y Social Trading. Accede a SONIC AI, track record de Myfxbook, tutoriales en video y canales oficiales de Telegram.">
+    <meta property="og:title" content="Social Trading Options | Bots Automatizados & IA">
+    <meta property="og:description" content="Bienvenido a la comunidad de Trading Algorítmico y Bots Automatizados. Conecta. Aprende. Opera. Crece.">
+    <meta property="og:image" content="image.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        limeclean: {
+                            50: '#f7fee7',
+                            100: '#ecfccb',
+                            200: '#d9f99d',
+                            300: '#bef264',
+                            400: '#a3e635',
+                            500: '#84cc16',
+                            600: '#65a30d',
+                            700: '#4d7c0f',
+                            800: '#3f6212',
+                            900: '#365314',
+                        }
+                    },
+                    boxShadow: {
+                        'lime-card': '0 4px 20px rgba(101, 163, 13, 0.08)',
+                        'lime-hover': '0 12px 28px rgba(101, 163, 13, 0.18)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f7fee7;
+            background-image: radial-gradient(circle at 50% 0%, #ecfccb 0%, #ffffff 70%);
+            color: #0f172a;
+        }
+
+        .dark body, body.dark {
+            background-color: #0b1409;
+            background-image: radial-gradient(circle at 50% 0%, #1a3311 0%, #0b1409 70%);
+            color: #f8fafc;
+        }
+
+        .hero-clean-bg {
+            background: linear-gradient(135deg, #ffffff 0%, #f7fee7 50%, #ecfccb 100%);
+        }
+        .dark .hero-clean-bg {
+            background: linear-gradient(135deg, #0f1e0d 0%, #0b1409 50%, #172c13 100%);
+        }
+
+        .lime-btn-primary {
+            background: linear-gradient(135deg, #65a30d 0%, #4d7c0f 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(101, 163, 13, 0.35);
+        }
+        .lime-btn-primary:hover {
+            background: linear-gradient(135deg, #4d7c0f 0%, #3f6212 100%);
+            box-shadow: 0 6px 20px rgba(101, 163, 13, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .lime-btn-accent {
+            background: #84cc16;
+            color: #0f172a;
+            font-weight: 800;
+        }
+        .lime-btn-accent:hover {
+            background: #a3e635;
+        }
+
+        /* Clean White Cards for high contrast legibility */
+        .clean-portal-card {
+            background: #ffffff;
+            border: 1.5px solid #d9f99d;
+            box-shadow: 0 4px 16px rgba(101, 163, 13, 0.06);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark .clean-portal-card {
+            background: #132210;
+            border: 1.5px solid #28471b;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .clean-portal-card:hover {
+            transform: translateY(-3px);
+            border-color: #65a30d;
+            box-shadow: 0 12px 28px rgba(101, 163, 13, 0.18);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a3e635;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="light antialiased selection:bg-lime-300 selection:text-slate-900 min-h-screen">
+
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-[#0d180b]/95 backdrop-blur-md border-b border-lime-200 dark:border-lime-900/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+            
+            <!-- Left Logo & Brand -->
+            <a href="index.html" class="flex items-center gap-3.5 group">
+                <img src="image.png" alt="Trading con Propósito Logo" class="h-11 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform">
+                <div>
+                    <span class="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-none block">
+                        Social Trading <span class="text-lime-600 dark:text-lime-400">Options</span>
+                    </span>
+                    <span class="text-xs font-bold text-lime-700 dark:text-lime-400 block mt-0.5">Comunidad de Bots & IA · Trading con Propósito</span>
+                </div>
+            </a>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Search bar in navbar on desktop -->
+                <div class="relative hidden md:block w-72">
+                    <i class="ph ph-magnifying-glass absolute left-3.5 top-2.5 text-lime-700 dark:text-lime-400 text-sm"></i>
+                    <input type="text" id="nav-search-input" onkeyup="filterLinksGlobal(this.value)" placeholder="Buscar bots, auditorías o clases..." class="w-full pl-9 pr-4 py-1.5 bg-lime-50 dark:bg-slate-900 border border-lime-300 dark:border-lime-800 rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-lime-600 transition-all font-medium">
+                </div>
+
+                <!-- Theme Toggle -->
+                <button onclick="toggleDarkMode()" title="Cambiar Modo" class="p-2.5 rounded-xl bg-lime-100 dark:bg-slate-900 border border-lime-300 dark:border-lime-800 text-lime-800 dark:text-lime-300 hover:bg-lime-200 transition-all">
+                    <i class="ph-fill ph-sun text-lg dark:hidden"></i>
+                    <i class="ph-fill ph-moon text-lg hidden dark:block"></i>
+                </button>
+
+                <button onclick="sharePage()" title="Compartir Portal" class="p-2.5 rounded-xl bg-lime-100 dark:bg-slate-900 border border-lime-300 dark:border-lime-800 text-lime-800 dark:text-lime-300 hover:bg-lime-200 transition-all">
+                    <i class="ph ph-share-network text-lg"></i>
+                </button>
+
+                <a href="links.html" class="px-4 py-2 rounded-xl lime-btn-primary font-bold text-xs shadow-md transition-all flex items-center gap-1.5">
+                    <span>Portal TAG Markets</span>
+                    <i class="ph ph-arrow-right text-sm"></i>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Prominent Hero Banner Section (Clean White & Lime Green) -->
+    <section class="hero-clean-bg relative overflow-hidden py-10 lg:py-14 px-4 sm:px-6 lg:px-8 border-b border-lime-200 dark:border-lime-900/40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+            
+            <!-- Left Side: Large Prominent Brand & Logo -->
+            <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-6 lg:gap-8">
+                <!-- Large Logo Badge -->
+                <div class="relative shrink-0">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl p-3 bg-white dark:bg-slate-900 border-2 border-lime-400 shadow-lime-card flex items-center justify-center">
+                        <img src="image.png" alt="Logo Trading con Propósito" class="w-full h-full object-contain p-1 rounded-2xl bg-white">
+                    </div>
+                    <span class="absolute -bottom-2 -right-2 bg-lime-500 text-white px-3 py-1 rounded-full text-xs font-black shadow-md border-2 border-white dark:border-slate-900 flex items-center gap-1">
+                        <i class="ph-fill ph-robot text-sm"></i> BOT SONIC AI
+                    </span>
+                </div>
+
+                <!-- Text & Tagline -->
+                <div class="space-y-3 max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-lime-100 dark:bg-lime-950/80 text-lime-800 dark:text-lime-300 border border-lime-300 dark:border-lime-800 text-xs font-extrabold uppercase tracking-wider">
+                        <i class="ph-fill ph-cpu text-sm text-lime-600 dark:text-lime-400"></i> Bots Automatizados & Trading Algorítmico
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
+                        Social Trading <span class="text-lime-600 dark:text-lime-400">Options</span>
+                    </h1>
+
+                    <p class="text-slate-700 dark:text-slate-300 text-sm sm:text-base font-semibold leading-relaxed">
+                        ¡Bienvenido a la comunidad de Trading Automatizado! Conecta tu cuenta, aprende la estrategia de SONIC AI, verifica los resultados auditados en Myfxbook y haz crecer tu capital con total claridad.
+                    </p>
+
+                    <!-- Feature Badges -->
+                    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 pt-1 text-xs font-bold text-slate-700 dark:text-slate-300">
+                        <span class="bg-white dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-lime-300 dark:border-lime-800 shadow-sm flex items-center gap-1.5">
+                            <i class="ph-fill ph-chart-line-up text-lime-600 text-sm"></i> Myfxbook Verificado
+                        </span>
+                        <span class="bg-white dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-lime-300 dark:border-lime-800 shadow-sm flex items-center gap-1.5">
+                            <i class="ph-fill ph-robot text-lime-600 text-sm"></i> Algoritmo SONIC AI
+                        </span>
+                        <span class="bg-white dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-lime-300 dark:border-lime-800 shadow-sm flex items-center gap-1.5">
+                            <i class="ph-fill ph-copy-simple text-emerald-600 text-sm"></i> CopyX & MAM
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Quick Actions Box -->
+            <div class="w-full md:w-80 shrink-0 bg-white dark:bg-slate-900 p-5 rounded-2xl border border-lime-300 dark:border-lime-800 space-y-4 shadow-lime-card">
+                <div class="flex items-center justify-between pb-3 border-b border-lime-100 dark:border-lime-900/50">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Auditoría Myfxbook</span>
+                    <span class="px-2.5 py-0.5 rounded bg-lime-100 text-lime-800 dark:bg-lime-950 dark:text-lime-300 border border-lime-300 dark:border-lime-800 text-[10px] uppercase font-black">En Vivo 🟢</span>
+                </div>
+
+                <a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/12076857" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 lime-btn-primary font-black text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-2 shadow-md group">
+                    <i class="ph-fill ph-chart-line-up text-xl group-hover:scale-110 transition-transform"></i>
+                    <span>Ver Track Record Myfxbook</span>
+                    <i class="ph ph-arrow-up-right text-base"></i>
+                </a>
+
+                <a href="https://t.me/+xs1sTgsp-Uc4MmVh" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-lime-50 dark:bg-slate-800 hover:bg-lime-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white border border-lime-300 dark:border-lime-700 font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2">
+                    <i class="ph-fill ph-telegram-logo text-sky-600 dark:text-sky-400 text-lg"></i>
+                    <span>Comunidad Telegram SONIC AI</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Main Body Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+
+        <!-- Grid Layout: Sidebar Filter + Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- LEFT COLUMN: Categories Sidebar (Lg: 3 columns) -->
+            <aside class="lg:col-span-3 space-y-6 sticky top-24">
+                
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-lime-200 dark:border-lime-900/50 shadow-sm space-y-3">
+                    <h3 class="text-xs font-black uppercase tracking-wider text-lime-700 dark:text-lime-400 px-2">Categorías</h3>
+                    
+                    <nav class="space-y-1 font-semibold text-xs sm:text-sm">
+                        <button onclick="setCategoryFilter('all')" class="cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl lime-btn-primary font-black transition-all" data-cat="all">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ph-fill ph-squares-four text-base"></i> Todos los Enlaces
+                            </span>
+                            <span class="bg-white/20 text-white text-[10px] px-2 py-0.5 rounded-full font-black">9</span>
+                        </button>
+
+                        <button onclick="setCategoryFilter('telegram')" class="cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-lime-50 dark:hover:bg-slate-800 transition-all" data-cat="telegram">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ph-fill ph-telegram-logo text-sky-600 dark:text-sky-400 text-base"></i> Canales Telegram
+                            </span>
+                            <span class="bg-lime-100 dark:bg-slate-800 text-lime-800 dark:text-lime-400 text-[10px] px-2 py-0.5 rounded-full font-bold">2</span>
+                        </button>
+
+                        <button onclick="setCategoryFilter('docs')" class="cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-lime-50 dark:hover:bg-slate-800 transition-all" data-cat="docs">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ph-fill ph-presentation-chart text-amber-600 dark:text-amber-400 text-base"></i> Presentación & Myfxbook
+                            </span>
+                            <span class="bg-lime-100 dark:bg-slate-800 text-lime-800 dark:text-lime-400 text-[10px] px-2 py-0.5 rounded-full font-bold">2</span>
+                        </button>
+
+                        <button onclick="setCategoryFilter('videos')" class="cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-lime-50 dark:hover:bg-slate-800 transition-all" data-cat="videos">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ph-fill ph-video-camera text-lime-600 dark:text-lime-400 text-base"></i> Videos & Clases
+                            </span>
+                            <span class="bg-lime-100 dark:bg-slate-800 text-lime-800 dark:text-lime-400 text-[10px] px-2 py-0.5 rounded-full font-bold">5</span>
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Myfxbook Highlight Banner -->
+                <div class="bg-gradient-to-br from-lime-600 to-lime-800 p-5 rounded-2xl text-white space-y-3 shadow-lime-card">
+                    <div class="w-10 h-10 rounded-xl bg-white/20 text-white flex items-center justify-center">
+                        <i class="ph-fill ph-chart-line-up text-xl"></i>
+                    </div>
+                    <h4 class="font-black text-sm text-white">Resultados Auditados en Myfxbook</h4>
+                    <p class="text-xs text-lime-100 leading-relaxed">Verifica el historial real, porcentaje de ganancias y rendimiento transparente de SONIC AI.</p>
+                    <a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/12076857" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-white hover:bg-lime-50 text-lime-900 text-xs font-black rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                        <span>Ver Auditoría en Vivo</span>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </a>
+                </div>
+
+            </aside>
+
+            <!-- RIGHT COLUMN: Link Cards Grid (Lg: 9 columns) -->
+            <div class="lg:col-span-9 space-y-10">
+
+                <!-- Search Input Mobile -->
+                <div class="md:hidden">
+                    <div class="relative">
+                        <i class="ph ph-magnifying-glass absolute left-3.5 top-3 text-lime-600 text-base"></i>
+                        <input type="text" id="main-search-input" onkeyup="filterLinksGlobal(this.value)" placeholder="Buscar bots, auditorías o tutoriales..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-lime-300 rounded-2xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-lime-600 shadow-sm font-medium">
+                    </div>
+                </div>
+
+                <!-- SECTION 1: TELEGRAM CHANNELS -->
+                <section class="link-section" data-cat="telegram">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xs font-black uppercase tracking-wider text-lime-800 dark:text-lime-400 flex items-center gap-2">
+                            <i class="ph-fill ph-telegram-logo text-sm text-lime-600"></i> Canales Oficiales de Telegram
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <!-- Telegram 1 -->
+                        <a href="https://t.me/+xs1sTgsp-Uc4MmVh" target="_blank" rel="noopener noreferrer" class="link-item clean-portal-card p-5 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center border border-sky-200 dark:border-sky-800/50 group-hover:bg-sky-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-telegram-logo text-2xl"></i>
+                                    </div>
+                                    <span class="text-[10px] font-black uppercase px-2.5 py-1 rounded-md bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800">Comunidad Principal</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-lime-600 transition-colors">
+                                        Social Trading Options
+                                    </h3>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Canal oficial de la comunidad de bots automatizados y copy trading.</p>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-lime-700 dark:text-lime-400">
+                                <span>Unirme al Canal</span>
+                                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </a>
+
+                        <!-- Telegram 2 -->
+                        <a href="https://t.me/+xs1sTgsp-Uc4MmVh" target="_blank" rel="noopener noreferrer" class="link-item clean-portal-card p-5 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-12 h-12 rounded-2xl bg-lime-50 dark:bg-lime-950/50 text-lime-700 dark:text-lime-400 flex items-center justify-center border border-lime-200 dark:border-lime-800/50 group-hover:bg-lime-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-robot text-2xl"></i>
+                                    </div>
+                                    <span class="text-[10px] font-black uppercase px-2.5 py-1 rounded-md bg-lime-100 dark:bg-lime-950 text-lime-800 dark:text-lime-300 border border-lime-300 dark:border-lime-800">Bot SONIC AI</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-lime-600 transition-colors">
+                                        SONIC AI - Expertos Algorítmicos
+                                    </h3>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">Canal exclusivo con reportes y actualizaciones del Bot SONIC AI.</p>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-lime-700 dark:text-lime-400">
+                                <span>Unirme al Canal</span>
+                                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </a>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 2: PRESENTACIONES & MYFXBOOK -->
+                <section class="link-section" data-cat="docs">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xs font-black uppercase tracking-wider text-lime-800 dark:text-lime-400 flex items-center gap-2">
+                            <i class="ph-fill ph-presentation-chart text-sm text-lime-600"></i> Presentaciones & Track Record Auditado
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <!-- Presentation 1 -->
+                        <a href="https://drive.google.com/drive/folders/1iN-T-rfoHvWkNoF3EbJzEZxuDXv9fvgW?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item clean-portal-card p-5 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-11 h-11 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-200 dark:border-amber-800/50 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-file-pdf text-2xl"></i>
+                                    </div>
+                                    <span class="text-[10px] font-black uppercase px-2 py-1 rounded-md bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">Google Drive</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-lime-600 transition-colors">
+                                        Presentación Oficial - SONIC AI
+                                    </h3>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                                        Documento técnico con la lógica algorítmica, backtests y gestión de riesgo.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-lime-700 dark:text-lime-400">
+                                <span>Ver Presentación</span>
+                                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </a>
+
+                        <!-- Presentation 2: Myfxbook -->
+                        <a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/12076857" target="_blank" rel="noopener noreferrer" class="link-item clean-portal-card p-5 rounded-2xl flex flex-col justify-between border-2 border-lime-400 group hover:border-lime-600">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-11 h-11 rounded-xl bg-lime-100 dark:bg-lime-950 text-lime-800 dark:text-lime-300 flex items-center justify-center border border-lime-300 dark:border-lime-800 group-hover:bg-lime-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-chart-line-up text-2xl"></i>
+                                    </div>
+                                    <span class="text-[10px] font-black uppercase px-2.5 py-1 rounded-md bg-lime-600 text-white">Myfxbook Auditado</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-lime-600 transition-colors">
+                                        Myfxbook Auditado - SONIC AI
+                                    </h3>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                                        Verificación de ganancias en tiempo real, drawdown histórico y tasa de acierto.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-lime-700 dark:text-lime-400">
+                                <span>Abrir Myfxbook</span>
+                                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </a>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 3: VIDEOS & TUTORIALES CLAVE -->
+                <section class="link-section" data-cat="videos">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xs font-black uppercase tracking-wider text-lime-800 dark:text-lime-400 flex items-center gap-2">
+                            <i class="ph-fill ph-video-camera text-sm text-lime-600"></i> Videos Promocionales & Clases en Video
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        
+                        <!-- Video 1 -->
+                        <a href="https://drive.google.com/drive/folders/111drQ28S5ykpherfif_5cs6qXsj2Qmya?usp=share_link" target="_blank" rel="noopener noreferrer" class="link-item clean-portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-lime-50 dark:bg-lime-950/50 text-lime-700 dark:text-lime-400 flex items-center justify-center border border-lime-200 dark:border-lime-800/50 group-hover:bg-lime-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-play-circle text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-lime-600 transition-colors">
+                                        Video Promocional Oficial
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Presentación rápida del bot y ecosistema.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-lime-700 dark:text-lime-400">
+                                <span>Ver Video</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video 2 -->
+                        <a href="https://drive.google.com/drive/folders/1YvqyoJhWtVZ2KpEUooZ6VajduVqm_-vU?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item clean-portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 flex items-center justify-center border border-emerald-200 dark:border-emerald-800/50 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-copy-simple text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors">
+                                        Portal MAM - CopyX (Tutorial)
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Cómo conectar la cuenta al sistema MAM.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-emerald-700 dark:text-emerald-400">
+                                <span>Ver Tutorial</span>
+                                <i class="ph ph-folder text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video 3 -->
+                        <a href="https://drive.google.com/file/d/1j6lPSMT1_Q0aFAY9iAWQsgJwS70xQbwS/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item clean-portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-400 flex items-center justify-center border border-blue-200 dark:border-blue-800/50 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-graduation-cap text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                                        01 Introducción al Mercado FOREX
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Fundamentos del mercado divisas para principiantes.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-blue-700 dark:text-blue-400">
+                                <span>Ver Clase 01</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video 4 -->
+                        <a href="https://drive.google.com/file/d/1ThBREw8nxn1Sy-Kz3wczb8GwhBRdwEuV/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item clean-portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-lime-50 dark:bg-lime-950/50 text-lime-700 dark:text-lime-400 flex items-center justify-center border border-lime-200 dark:border-lime-800/50 group-hover:bg-lime-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-link text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-lime-600 transition-colors">
+                                        02 Plataforma CopyX & Tutorial Conexión
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Vinculación de cuenta MT4/MT5 al servidor.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-lime-700 dark:text-lime-400">
+                                <span>Ver Clase 02</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video 5 -->
+                        <a href="https://drive.google.com/file/d/1ZEA1dUTIkYFemFwjdxUhpmtKO4JcOWTr/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item clean-portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/50 text-teal-700 dark:text-teal-400 flex items-center justify-center border border-teal-200 dark:border-teal-800/50 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-cpu text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-teal-600 transition-colors">
+                                        03 Estrategia Automatizada SONIC AI
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Análisis profundo de la gestión y parámetros del bot.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-teal-700 dark:text-teal-400">
+                                <span>Ver Clase 03</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 lime-btn-primary font-black px-5 py-3 rounded-2xl text-xs shadow-md transition-all duration-300 opacity-0 pointer-events-none flex items-center gap-2 z-50">
+        <i class="ph-fill ph-check-circle text-base"></i>
+        <span id="toast-message">¡Enlace copiado al portapapeles!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-lime-200 dark:border-lime-900/40 bg-white dark:bg-[#0a1409] py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-600 dark:text-slate-400">
+            <div class="flex items-center gap-3">
+                <img src="image.png" alt="Trading con Propósito Logo" class="h-8 w-auto object-contain">
+                <div>
+                    <p class="font-black text-slate-900 dark:text-white text-sm">Social Trading <span class="text-lime-600 dark:text-lime-400">Options</span></p>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Trading con Propósito · Bots Automatizados</p>
+                </div>
+            </div>
+
+            <p>© 2026 SocialTradingOptions. Todos los derechos reservados.</p>
+
+            <div class="flex items-center gap-4 font-bold text-lime-700 dark:text-lime-400">
+                <a href="https://t.me/+xs1sTgsp-Uc4MmVh" target="_blank" class="hover:text-lime-600 transition-colors">Telegram</a>
+                <span>·</span>
+                <a href="https://www.myfxbook.com/members/SonicExperts/sonic-ai/12076857" target="_blank" class="hover:text-lime-600 transition-colors">Myfxbook</a>
+                <span>·</span>
+                <a href="links.html" class="hover:text-lime-600 transition-colors">TAG Markets</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Filter & Functionality Script -->
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            document.documentElement.classList.toggle('light');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme_preference', isDark ? 'dark' : 'light');
+        }
+
+        // Initialize preferred theme - default to Light mode for clean white background
+        if (localStorage.getItem('theme_preference') === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+        }
+
+        function filterLinksGlobal(query) {
+            const q = query.toLowerCase().trim();
+            const linkItems = document.querySelectorAll('.link-item');
+            
+            linkItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(q)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function setCategoryFilter(category) {
+            const navButtons = document.querySelectorAll('.cat-nav-btn');
+            navButtons.forEach(btn => {
+                if (btn.getAttribute('data-cat') === category) {
+                    btn.className = 'cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl lime-btn-primary font-black transition-all';
+                } else {
+                    btn.className = 'cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-lime-50 dark:hover:bg-slate-800 transition-all font-semibold';
+                }
+            });
+
+            const sections = document.querySelectorAll('.link-section');
+            sections.forEach(sec => {
+                if (category === 'all' || sec.getAttribute('data-cat') === category) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+
+        function copyCurrentUrl() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast('¡Enlace copiado al portapapeles!');
+            }).catch(() => {});
+        }
+
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Social Trading Options | Bots Automatizados',
+                    text: 'Comunidad oficial de Bots Automatizados y Trading Algorítmico',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                copyCurrentUrl();
+            }
+        }
+    </script>
+</body>
+</html>

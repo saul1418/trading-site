@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Trading con Propósito</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <section class="section hero" style="padding: 100px 0;">
+            <div class="container">
+                <div class="hero-content" style="grid-template-columns: 1fr; text-align: center;">
+                    <h1 class="hero-title">Bienvenido a tu espacio de trading</h1>
+                    <p class="hero-subtitle">Aquí encontrarás motivación, señales y consejos para operar con confianza.</p>
+                    <div id="dashboard-welcome" style="margin-top: 30px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section benefits">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Tu tablero</h2>
+                    <p class="section-subtitle">Mensajes diarios y recursos para tu avance.</p>
+                </div>
+                <div class="benefits-grid" id="dashboard-cards"></div>
+            </div>
+        </section>
+        <section class="section steps">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Acciones rápidas</h2>
+                    <p class="section-subtitle">Lo que puedes hacer ahora mismo.</p>
+                </div>
+                <div class="steps-container" style="justify-content: space-between;">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Ver señales</h3>
+                        <p class="step-description">Revisa las recomendaciones del día y decide tu próxima operación.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Leer consejos</h3>
+                        <p class="step-description">Consulta ideas de riesgo y manejo de capital con cada paso.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Planificar</h3>
+                        <p class="step-description">Crea tu rutina de trading y sigue tu progreso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div style="text-align:center; margin-bottom:60px;">
+            <button id="logout-btn" class="btn btn-outline">Cerrar sesión</button>
+        </div>
+    </main>
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAG Markets | Portal de Enlaces & Recursos - Trading con Propósito</title>
+    <meta name="description" content="Portal oficial de recursos, videos, presentaciones e información de TAG Markets y Trading con Propósito.">
+    <meta property="og:title" content="TAG Markets | Portal de Enlaces & Recursos">
+    <meta property="og:description" content="El futuro de Brokerage FX e Innovaciones Financieras. Sé tu mejor versión.">
+    <meta property="og:image" content="image.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        tcp: {
+                            cyan: '#0891b2',
+                            blue: '#2563eb',
+                            navy: '#0b1329',
+                            dark: '#0f172a',
+                            orange: '#ea580c',
+                            amber: '#f59e0b',
+                            emerald: '#059669',
+                            slate: '#1e293b',
+                            surface: '#f8fafc',
+                        }
+                    },
+                    boxShadow: {
+                        'tcp-sm': '0 4px 14px rgba(15, 23, 42, 0.04)',
+                        'tcp-md': '0 10px 30px rgba(15, 23, 42, 0.08)',
+                        'tcp-lg': '0 20px 40px rgba(8, 145, 178, 0.12)',
+                        'tcp-glow': '0 0 35px rgba(8, 145, 178, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .hero-gradient-bg {
+            background: linear-gradient(135deg, #0b1329 0%, #0f172a 40%, #0891b2 100%);
+        }
+
+        .brand-gradient-text {
+            background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-gradient-btn {
+            background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+        }
+        .brand-gradient-btn:hover {
+            background: linear-gradient(135deg, #0e7490 0%, #1d4ed8 100%);
+        }
+
+        .orange-gradient-btn {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+        }
+
+        /* Glassmorphism cards */
+        .portal-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark .portal-card {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .portal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px -10px rgba(8, 145, 178, 0.2);
+            border-color: rgba(8, 145, 178, 0.4);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased selection:bg-cyan-500 selection:text-white min-h-screen">
+
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+            
+            <!-- Left Logo & Brand -->
+            <a href="index.html" class="flex items-center gap-3.5 group">
+                <img src="image.png" alt="Trading con Propósito Logo" class="h-11 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-sm">
+                <div>
+                    <span class="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-none block">Trading con Propósito</span>
+                    <span class="text-xs font-bold text-cyan-600 dark:text-cyan-400 block mt-0.5">TAG Markets · Sé tu mejor versión</span>
+                </div>
+            </a>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Search bar in navbar on desktop -->
+                <div class="relative hidden md:block w-72">
+                    <i class="ph ph-magnifying-glass absolute left-3.5 top-2.5 text-slate-400 text-sm"></i>
+                    <input type="text" id="nav-search-input" onkeyup="filterLinksGlobal(this.value)" placeholder="Buscar recursos o videos..." class="w-full pl-9 pr-4 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-cyan-500 transition-all">
+                </div>
+
+                <!-- Theme Toggle -->
+                <button onclick="toggleDarkMode()" title="Cambiar Tema" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 border border-slate-200 dark:border-slate-700 transition-all">
+                    <i class="ph-fill ph-sun text-lg dark:hidden"></i>
+                    <i class="ph-fill ph-moon text-lg hidden dark:block"></i>
+                </button>
+
+                <button onclick="sharePage()" title="Compartir Portal" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 border border-slate-200 dark:border-slate-700 transition-all">
+                    <i class="ph ph-share-network text-lg"></i>
+                </button>
+
+                <a href="socialtrading.html" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-cyan-600 font-bold text-xs transition-all">
+                    <i class="ph-fill ph-robot text-cyan-600 text-sm"></i>
+                    <span>Social Trading</span>
+                </a>
+
+                <a href="index.html" class="px-4 py-2 rounded-xl brand-gradient-btn text-white font-bold text-xs shadow-md hover:shadow-cyan-500/25 transition-all flex items-center gap-1.5">
+                    <span>Volver al Inicio</span>
+                    <i class="ph ph-arrow-right text-sm"></i>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Prominent Hero Banner Section -->
+    <section class="hero-gradient-bg text-white relative overflow-hidden py-12 lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+        <!-- Ambient Glowing Elements -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+            
+            <!-- Left Side: Large Prominent Brand & Logo -->
+            <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-6 lg:gap-8">
+                <!-- Large Logo Badge -->
+                <div class="relative shrink-0">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl p-3 bg-white/10 backdrop-blur-xl border-2 border-white/20 shadow-tcp-glow flex items-center justify-center bg-slate-900/60">
+                        <img src="image.png" alt="Logo Trading con Propósito" class="w-full h-full object-contain p-1 rounded-2xl bg-white shadow-md">
+                    </div>
+                    <span class="absolute -bottom-2 -right-2 bg-teal-500 text-slate-950 px-3 py-1 rounded-full text-xs font-black shadow-xl border-2 border-slate-900 flex items-center gap-1">
+                        <i class="ph-fill ph-seal-check text-sm"></i> Verificado
+                    </span>
+                </div>
+
+                <!-- Text & Tagline -->
+                <div class="space-y-3 max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-bold uppercase tracking-wider">
+                        <i class="ph-fill ph-sparkle text-sm"></i> Portal Oficial de Enlaces & Recursos
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+                        TAG Markets <span class="text-cyan-400">· Trading con Propósito</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base font-medium leading-relaxed">
+                        El Futuro de Brokerage FX e Innovaciones Financieras. Accede a nuestras presentaciones corporativas, tutoriales en video, soporte oficial y canales de señales institucionales.
+                    </p>
+
+                    <!-- Feature Badges -->
+                    <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 pt-1 text-xs font-bold text-slate-200">
+                        <span class="bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-700/80 flex items-center gap-1.5">
+                            <i class="ph-fill ph-shield-check text-cyan-400 text-sm"></i> Broker Regulado
+                        </span>
+                        <span class="bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-700/80 flex items-center gap-1.5">
+                            <i class="ph-fill ph-graduation-cap text-amber-400 text-sm"></i> Academia 100% Gratis
+                        </span>
+                        <span class="bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-700/80 flex items-center gap-1.5">
+                            <i class="ph-fill ph-lightning text-emerald-400 text-sm"></i> Señales Diarias
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Quick Stats / Action Box -->
+            <div class="w-full md:w-80 shrink-0 bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/15 space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Canal Principal</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] uppercase font-bold">Activo 🟢</span>
+                </div>
+
+                <a href="https://t.me/+xs1sTgsp-Uc4MmVh" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg group">
+                    <i class="ph-fill ph-telegram-logo text-xl group-hover:scale-110 transition-transform"></i>
+                    <span>Unirme a Señales Gratis</span>
+                    <i class="ph ph-arrow-up-right text-base"></i>
+                </a>
+
+                <a href="https://wa.me/18098298735" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-slate-900/80 hover:bg-slate-900 text-white border border-slate-700 font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2">
+                    <i class="ph-fill ph-whatsapp-logo text-emerald-400 text-lg"></i>
+                    <span>Soporte Oficial WhatsApp</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Main Full-Width Body Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+
+        <!-- Responsive Layout Grid: Left Sidebar (Categories) + Main Content (Link Cards Grid) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- LEFT COLUMN: Categories Navigation & Quick Filters (Lg: 3 columns) -->
+            <aside class="lg:col-span-3 space-y-6 sticky top-24">
+                
+                <!-- Category Selector Sidebar Box -->
+                <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+                    <h3 class="text-xs font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 px-2">Categorías</h3>
+                    
+                    <nav class="space-y-1 font-semibold text-xs sm:text-sm">
+                        <button onclick="setCategoryFilter('all')" class="cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl brand-gradient-btn text-white font-bold transition-all" data-cat="all">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ph-fill ph-squares-four text-base"></i> Todos los Recursos
+                            </span>
+                            <span class="bg-white/20 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">19</span>
+                        </button>
+
+                        <button onclick="setCategoryFilter('info')" class="cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" data-cat="info">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ph-fill ph-info text-cyan-600 dark:text-cyan-400 text-base"></i> Información Oficial
+                            </span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] px-2 py-0.5 rounded-full font-bold">4</span>
+                        </button>
+
+                        <button onclick="setCategoryFilter('videos')" class="cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" data-cat="videos">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ph-fill ph-video-camera text-orange-500 text-base"></i> Videos & Demos
+                            </span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] px-2 py-0.5 rounded-full font-bold">9</span>
+                        </button>
+
+                        <button onclick="setCategoryFilter('help')" class="cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" data-cat="help">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ph-fill ph-headset text-blue-500 text-base"></i> Centro de Soporte
+                            </span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] px-2 py-0.5 rounded-full font-bold">2</span>
+                        </button>
+
+                        <button onclick="setCategoryFilter('events')" class="cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" data-cat="events">
+                            <span class="flex items-center gap-2.5">
+                                <i class="ph-fill ph-sparkle text-rose-500 text-base"></i> Eventos Globales
+                            </span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] px-2 py-0.5 rounded-full font-bold">2</span>
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Web Oficial Highlight Card -->
+                <div class="bg-gradient-to-br from-cyan-900 to-slate-900 p-5 rounded-2xl border border-cyan-700/40 text-white space-y-3 shadow-md">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center border border-cyan-500/30">
+                        <i class="ph-fill ph-globe text-xl"></i>
+                    </div>
+                    <h4 class="font-black text-sm">Sitio Web Oficial TAG Markets</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">Conoce todos nuestros productos financieros, plataforma de trading y herramientas institucionales.</p>
+                    <a href="https://www.tagmarkets.com/" target="_blank" rel="noopener noreferrer" class="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-extrabold rounded-xl transition-all flex items-center justify-center gap-1.5">
+                        <span>Visitar Web Oficial</span>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </a>
+                </div>
+
+            </aside>
+
+            <!-- RIGHT COLUMN: Multi-Column Link Cards Grid (Lg: 9 columns) -->
+            <div class="lg:col-span-9 space-y-10">
+
+                <!-- Search Input Mobile / Tablet -->
+                <div class="md:hidden">
+                    <div class="relative">
+                        <i class="ph ph-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-base"></i>
+                        <input type="text" id="main-search-input" onkeyup="filterLinksGlobal(this.value)" placeholder="Buscar recursos, presentaciones o videos..." class="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-cyan-500 shadow-sm">
+                    </div>
+                </div>
+
+                <!-- SECTION 1: CANAL OFICIAL DESTACADO -->
+                <section class="link-section" data-cat="info">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                            Recurso Destacado
+                        </h2>
+                    </div>
+
+                    <a href="https://t.me/+xs1sTgsp-Uc4MmVh" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-5 sm:p-6 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-2 border-emerald-500/40 dark:border-emerald-500/50 shadow-md group hover:border-emerald-500">
+                        <div class="flex items-center gap-4 overflow-hidden">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                                <i class="ph-fill ph-telegram-logo text-3xl"></i>
+                            </div>
+                            <div>
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-[10px] font-extrabold uppercase mb-1">
+                                    Canal Gratuito ⚡
+                                </div>
+                                <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                                    Telegram: Señales TAG Gratis
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Recibe análisis de mercado diario, operativa institucional y señales gratuitas.</p>
+                            </div>
+                        </div>
+                        <span class="shrink-0 w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs shadow-md flex items-center justify-center gap-1.5 group-hover:scale-105 transition-all">
+                            <span>Unirme al Canal</span>
+                            <i class="ph ph-arrow-up-right text-sm"></i>
+                        </span>
+                    </a>
+                </section>
+
+                <!-- SECTION 2: INFORMACIÓN CORPORATIVA & DOCUMENTOS (Grid 2-Columns) -->
+                <section class="link-section" data-cat="info">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xs font-black uppercase tracking-wider text-cyan-600 dark:text-cyan-400 flex items-center gap-2">
+                            <i class="ph-fill ph-info text-sm"></i> Información Oficial & Presentaciones
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <!-- Card 1 -->
+                        <a href="https://drive.google.com/drive/folders/11knee02bcO96ZoAKVlmTBigXv19adh6e?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-5 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-200 dark:border-blue-800/50 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-presentation-chart text-2xl"></i>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold uppercase px-2 py-1 rounded-md bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300">Google Drive</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                                        Presentaciones Corporativas
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                                        Dossier institucional completo, modelo de negocio e innovación en brokerage.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-cyan-600 dark:text-cyan-400">
+                                <span>Ver Presentaciones</span>
+                                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </a>
+
+                        <!-- Card 2 -->
+                        <a href="https://www.tagmarkets.com/" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-5 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-11 h-11 rounded-xl bg-cyan-50 dark:bg-cyan-950/50 text-cyan-600 dark:text-cyan-400 flex items-center justify-center border border-cyan-200 dark:border-cyan-800/50 group-hover:bg-cyan-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-globe text-2xl"></i>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold uppercase px-2 py-1 rounded-md bg-cyan-50 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-300">Sitio Web</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                                        Sitio Web Oficial - TAG Markets
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                                        Portal principal de servicios, tipos de cuentas y tecnología financiera.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-cyan-600 dark:text-cyan-400">
+                                <span>Abrir Website</span>
+                                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </a>
+
+                        <!-- Card 3 -->
+                        <a href="https://intercom.help/tag-markets/en/articles/9681644-is-tag-markets-regulated" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-5 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-11 h-11 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-200 dark:border-amber-800/50 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-shield-check text-2xl"></i>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold uppercase px-2 py-1 rounded-md bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-300">Regulación</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                        ¿Está regulado TAG Markets?
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                                        Información sobre licencias internacionales, marcos legales y protección de fondos.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-amber-600 dark:text-amber-400">
+                                <span>Leer Licencias</span>
+                                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </a>
+
+                        <!-- Card 4 -->
+                        <a href="https://intercom.help/tag-markets/en/collections/10835803-guides-tutorials" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-5 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="w-11 h-11 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-200 dark:border-purple-800/50 group-hover:bg-purple-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-book-open text-2xl"></i>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold uppercase px-2 py-1 rounded-md bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-300">Tutoriales</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                                        Guías & Tutoriales en Video
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                                        Colección paso a paso para apertura de cuentas, depósitos, retiros y configuración.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-purple-600 dark:text-purple-400">
+                                <span>Ver Colección</span>
+                                <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </a>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 3: VIDEOS PROMOCIONALES & DEMOS (Grid 3-Columns / 2-Columns) -->
+                <section class="link-section" data-cat="videos">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xs font-black uppercase tracking-wider text-orange-600 dark:text-orange-400 flex items-center gap-2">
+                            <i class="ph-fill ph-video-camera text-sm"></i> Videos Promocionales & Demos de Plataforma
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        
+                        <!-- Video Card 1 -->
+                        <a href="https://drive.google.com/file/d/1QhuaNWe1H4paJwBJWUUewqtUpuE6bHNZ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 flex items-center justify-center border border-rose-200 dark:border-rose-800/50 group-hover:bg-rose-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-buildings text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-orange-600 transition-colors">
+                                        Oficina Medellín, Colombia 🇨🇴
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Recorrido por la sede en Colombia.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-orange-600">
+                                <span>Ver Video</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video Card 2 -->
+                        <a href="https://drive.google.com/file/d/1hFm1QI4UrsCigKcsLXLu7Oc9tZEeoGUp/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-200 dark:border-amber-800/50 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-buildings text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-orange-600 transition-colors">
+                                        Oficina Dubái, EAU 🇦🇪
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Sede central de operaciones en Emiratos.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-orange-600">
+                                <span>Ver Video</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video Card 3 -->
+                        <a href="https://drive.google.com/file/d/1nXC_jRL4kjSV6kPYybxJb6qbajnZs0Ul/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-950/50 text-cyan-600 dark:text-cyan-400 flex items-center justify-center border border-cyan-200 dark:border-cyan-800/50 group-hover:bg-cyan-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-users-three text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 transition-colors">
+                                        Portal IB (Partner Promo)
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Programa de comisiones para socios e IB.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-cyan-600">
+                                <span>Ver Video</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video Card 4 -->
+                        <a href="https://drive.google.com/drive/folders/1YMNg9cwJb9DNAZ_8YRyA6s3_1Hz7pY5T?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-200 dark:border-emerald-800/50 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-copy-simple text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors">
+                                        Portal CopyX (Copy Trading)
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Copia operaciones de master traders en automático.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-emerald-600">
+                                <span>Ver Video</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video Card 5 -->
+                        <a href="https://drive.google.com/drive/folders/1QbO92kUPLn1H3hFc50Z2MQKj3qRAtQoK?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center border border-indigo-200 dark:border-indigo-800/50 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-list-checks text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 transition-colors">
+                                        CopyX - Guía Paso a Paso
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Cómo vincular tu cuenta y gestionar tu riesgo.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-indigo-600">
+                                <span>Ver Guía</span>
+                                <i class="ph ph-folder text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video Card 6 -->
+                        <a href="https://drive.google.com/file/d/1VcoU_tQBkWfkKcrvqIQPNw4zYb1RFlx7/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center border border-teal-200 dark:border-teal-800/50 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-device-mobile text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-teal-600 transition-colors">
+                                        TAG App Móvil (Promo)
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Controla tu operativa desde tu smartphone.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-teal-600">
+                                <span>Ver Video</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video Card 7 -->
+                        <a href="https://drive.google.com/file/d/1wrfHyI4Gr2oimpPxXAIFn1BYjqUh-A2e/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-pink-50 dark:bg-pink-950/50 text-pink-600 dark:text-pink-400 flex items-center justify-center border border-pink-200 dark:border-pink-800/50 group-hover:bg-pink-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-credit-card text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-pink-600 transition-colors">
+                                        Tarjeta Débito TAG Card
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Retiros internacionales a tu tarjeta Visa/Mastercard.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-pink-600">
+                                <span>Ver Video</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video Card 8 -->
+                        <a href="https://drive.google.com/file/d/1UZjk1Asjt38yHj246852EZe3g5fNV8rV/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-violet-50 dark:bg-violet-950/50 text-violet-600 dark:text-violet-400 flex items-center justify-center border border-violet-200 dark:border-violet-800/50 group-hover:bg-violet-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-graduation-cap text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-violet-600 transition-colors">
+                                        Sesiones Vivo TAG Academy
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Clases y operativa en directo con másters.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-violet-600">
+                                <span>Ver Tutorial</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                        <!-- Video Card 9 -->
+                        <a href="https://drive.google.com/file/d/1jl2YFu1yhWOLE2VTzakhnBRTqJLFtqYx/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex flex-col justify-between group">
+                            <div class="space-y-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-200 dark:border-amber-800/50 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                                    <i class="ph-fill ph-coins text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">
+                                        Cuenta 24x con Tokens
+                                    </h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Integración crypto y operativa 24/7.</p>
+                                </div>
+                            </div>
+                            <div class="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-amber-600">
+                                <span>Ver Tutorial</span>
+                                <i class="ph ph-play-circle text-lg"></i>
+                            </div>
+                        </a>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 4: SOPORTE Y EVENTOS GLOBALES (Grid 2-Columns) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Help Centre Box -->
+                    <section class="link-section space-y-4" data-cat="help">
+                        <h2 class="text-xs font-black uppercase tracking-wider text-blue-600 dark:text-blue-400 flex items-center gap-2">
+                            <i class="ph-fill ph-headset text-sm"></i> Soporte & Ayuda Oficial
+                        </h2>
+
+                        <div class="space-y-3">
+                            <a href="https://intercom.help/tag-markets/en/" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex items-center justify-between group">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-200 dark:border-blue-800/50 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-question text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">Centro de Ayuda Intercom</h3>
+                                        <p class="text-xs text-slate-500 dark:text-slate-400">Artículos técnicos y soluciones frecuentes.</p>
+                                    </div>
+                                </div>
+                                <i class="ph ph-arrow-right text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all"></i>
+                            </a>
+
+                            <a href="https://wa.me/18098298735" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex items-center justify-between group">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800/50 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors">WhatsApp Soporte Directo</h3>
+                                        <p class="text-xs text-slate-500 dark:text-slate-400">Atención personalizada en español.</p>
+                                    </div>
+                                </div>
+                                <i class="ph ph-arrow-right text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all"></i>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Events Box -->
+                    <section class="link-section space-y-4" data-cat="events">
+                        <h2 class="text-xs font-black uppercase tracking-wider text-rose-600 dark:text-rose-400 flex items-center gap-2">
+                            <i class="ph-fill ph-sparkle text-sm"></i> Eventos & Cumbres Globales
+                        </h2>
+
+                        <div class="space-y-3">
+                            <a href="https://drive.google.com/file/d/18Ze05Pt7PakXi4umzL9Fmn_qbSoJDjCk/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex items-center justify-between group">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 border border-rose-200 dark:border-rose-800/50 group-hover:bg-rose-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-ticket text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-rose-600 transition-colors">Obsession Malasia 2025 🇲🇾</h3>
+                                        <p class="text-xs text-slate-500 dark:text-slate-400">Resumen en Kuala Lumpur.</p>
+                                    </div>
+                                </div>
+                                <i class="ph ph-play-circle text-xl text-slate-400 group-hover:text-rose-600 transition-all"></i>
+                            </a>
+
+                            <a href="https://drive.google.com/file/d/1eIQ6myUndGqDh-rzEg1ODYKT_lxAhsL7/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item portal-card p-4 rounded-2xl flex items-center justify-between group">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 border border-amber-200 dark:border-amber-800/50 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                                        <i class="ph-fill ph-ticket text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">Obsession Colombia 2025 🇨🇴</h3>
+                                        <p class="text-xs text-slate-500 dark:text-slate-400">Gran evento para Latinoamérica.</p>
+                                    </div>
+                                </div>
+                                <i class="ph ph-play-circle text-xl text-slate-400 group-hover:text-amber-600 transition-all"></i>
+                            </a>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 brand-gradient-btn text-white font-extrabold px-5 py-3 rounded-2xl text-xs shadow-tcp-glow transition-all duration-300 opacity-0 pointer-events-none flex items-center gap-2 z-50">
+        <i class="ph-fill ph-check-circle text-base"></i>
+        <span id="toast-message">¡Enlace copiado al portapapeles!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-3">
+                <img src="image.png" alt="Trading con Propósito Logo" class="h-8 w-auto object-contain">
+                <div>
+                    <p class="font-black text-slate-900 dark:text-slate-200 text-sm">Trading con Propósito</p>
+                    <p class="text-[11px] text-slate-400">TAG Markets · Sé tu mejor versión</p>
+                </div>
+            </div>
+
+            <p>© 2026 TAG Markets. Todos los derechos reservados.</p>
+
+            <div class="flex items-center gap-4">
+                <a href="https://www.tagmarkets.com/" target="_blank" class="hover:text-cyan-600 transition-colors font-bold">Web Oficial</a>
+                <span>·</span>
+                <a href="https://intercom.help/tag-markets/en/" target="_blank" class="hover:text-cyan-600 transition-colors font-bold">Soporte</a>
+                <span>·</span>
+                <a href="https://t.me/+xs1sTgsp-Uc4MmVh" target="_blank" class="hover:text-cyan-600 transition-colors font-bold">Telegram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Filter & Functionality Script -->
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme_preference', isDark ? 'dark' : 'light');
+        }
+
+        // Initialize preferred theme
+        if (localStorage.getItem('theme_preference') === 'dark' || 
+            (!('theme_preference' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        function filterLinksGlobal(query) {
+            const q = query.toLowerCase().trim();
+            const linkItems = document.querySelectorAll('.link-item');
+            
+            linkItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(q)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function setCategoryFilter(category) {
+            const navButtons = document.querySelectorAll('.cat-nav-btn');
+            navButtons.forEach(btn => {
+                if (btn.getAttribute('data-cat') === category) {
+                    btn.className = 'cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl brand-gradient-btn text-white font-bold transition-all';
+                } else {
+                    btn.className = 'cat-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-semibold';
+                }
+            });
+
+            const sections = document.querySelectorAll('.link-section');
+            sections.forEach(sec => {
+                if (category === 'all' || sec.getAttribute('data-cat') === category) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
+        }
+
+        function copyCurrentUrl() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast('¡Enlace del portal copiado al portapapeles!');
+            }).catch(() => {});
+        }
+
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'TAG Markets | Portal de Enlaces & Recursos',
+                    text: 'Portal oficial de recursos, presentaciones y videos de TAG Markets',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                copyCurrentUrl();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin - Trading con Propósito</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main style="padding:80px 20px;">
+    <div class="container">
+      <h1>Panel Admin</h1>
+      <div id="login-box" style="max-width:400px; margin-top:20px;">
+        <label>Admin password</label>
+        <input id="admin-pass" type="password" placeholder="password" class="form-group">
+        <button id="admin-login" class="btn btn-primary" style="margin-top:10px;">Entrar</button>
+      </div>
+
+      <div id="admin-area" style="display:none; margin-top:30px;">
+        <button id="refresh-users" class="btn btn-outline">Refrescar</button>
+        <table style="width:100%; margin-top:20px; border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Proveedor</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="users-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>

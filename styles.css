@@ -77,14 +77,14 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     text-decoration: none;
 }
 
 .logo-image {
-    height: 46px;
+    height: 60px;
     width: auto;
-    max-width: 180px;
+    max-width: 250px;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
@@ -94,16 +94,17 @@ body {
 }
 
 .logo-text {
-    font-size: 1.25rem;
+    font-size: 1.45rem;
     font-weight: 800;
     color: var(--text-primary);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    white-space: nowrap;
 }
 
 .nav {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 24px;
 }
 
 .nav-link {
@@ -124,7 +125,13 @@ body {
     gap: 28px;
 }
 
-/* Mobile Nav Toggle Button (Hamburger) */
+/* Hide mobile-specific menu elements on desktop */
+.nav-link-mobile-only,
+.mobile-menu-divider,
+.mobile-auth-link,
+.mobile-menu-cta {
+    display: none !important;
+}
 .mobile-nav-toggle {
     display: none;
     flex-direction: column;

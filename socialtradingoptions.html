@@ -133,17 +133,17 @@
             
             <!-- Left Logo & Brand -->
             <a href="index.html" class="flex items-center gap-3.5 group">
-                <img src="image.png" alt="Trading con Propósito Logo" class="h-11 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform">
+                <img src="image.png" alt="Trading con Propósito Logo" class="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform">
                 <div>
-                    <span class="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-none block">
+                    <span class="text-sm sm:text-lg font-black text-slate-900 dark:text-white leading-none block">
                         Social Trading <span class="text-lime-600 dark:text-lime-400">Options</span>
                     </span>
-                    <span class="text-xs font-bold text-lime-700 dark:text-lime-400 block mt-0.5">Comunidad de Bots & IA · Trading con Propósito</span>
+                    <span class="text-xs font-bold text-lime-700 dark:text-lime-400 hidden sm:block mt-0.5">Comunidad de Bots & IA · Trading con Propósito</span>
                 </div>
             </a>
 
             <!-- Right Actions -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3">
                 <!-- Search bar in navbar on desktop -->
                 <div class="relative hidden md:block w-72">
                     <i class="ph ph-magnifying-glass absolute left-3.5 top-2.5 text-lime-700 dark:text-lime-400 text-sm"></i>
@@ -151,21 +151,49 @@
                 </div>
 
                 <!-- Theme Toggle -->
-                <button onclick="toggleDarkMode()" title="Cambiar Modo" class="p-2.5 rounded-xl bg-lime-100 dark:bg-slate-900 border border-lime-300 dark:border-lime-800 text-lime-800 dark:text-lime-300 hover:bg-lime-200 transition-all">
-                    <i class="ph-fill ph-sun text-lg dark:hidden"></i>
-                    <i class="ph-fill ph-moon text-lg hidden dark:block"></i>
+                <button onclick="toggleDarkMode()" title="Cambiar Modo" class="p-2 sm:p-2.5 rounded-xl bg-lime-100 dark:bg-slate-900 border border-lime-300 dark:border-lime-800 text-lime-800 dark:text-lime-300 hover:bg-lime-200 transition-all">
+                    <i class="ph-fill ph-sun text-base sm:text-lg dark:hidden"></i>
+                    <i class="ph-fill ph-moon text-base sm:text-lg hidden dark:block"></i>
                 </button>
 
-                <button onclick="sharePage()" title="Compartir Portal" class="p-2.5 rounded-xl bg-lime-100 dark:bg-slate-900 border border-lime-300 dark:border-lime-800 text-lime-800 dark:text-lime-300 hover:bg-lime-200 transition-all">
-                    <i class="ph ph-share-network text-lg"></i>
+                <button onclick="sharePage()" title="Compartir Portal" class="p-2 sm:p-2.5 rounded-xl bg-lime-100 dark:bg-slate-900 border border-lime-300 dark:border-lime-800 text-lime-800 dark:text-lime-300 hover:bg-lime-200 transition-all">
+                    <i class="ph ph-share-network text-base sm:text-lg"></i>
                 </button>
 
-                <a href="links.html" class="px-4 py-2 rounded-xl lime-btn-primary font-bold text-xs shadow-md transition-all flex items-center gap-1.5">
+                <a href="links.html" class="hidden sm:flex px-4 py-2 rounded-xl lime-btn-primary font-bold text-xs shadow-md transition-all items-center gap-1.5">
                     <span>Portal TAG Markets</span>
                     <i class="ph ph-arrow-right text-sm"></i>
                 </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button onclick="toggleMobilePortalMenu()" aria-label="Abrir Menú Social Trading" class="sm:hidden p-2.5 rounded-xl bg-lime-100 dark:bg-slate-900 border border-lime-300 dark:border-lime-800 text-lime-800 dark:text-lime-300">
+                    <i class="ph ph-list text-xl"></i>
+                </button>
             </div>
 
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-portal-drawer" class="hidden fixed inset-x-0 top-[60px] bg-white/98 dark:bg-[#0d180b]/98 backdrop-blur-xl border-b border-lime-200 dark:border-lime-900 p-5 shadow-2xl z-50 space-y-2.5">
+            <a href="index.html" class="flex items-center gap-3 p-3 rounded-xl bg-lime-50 dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-sm">
+                <i class="ph-fill ph-house text-lime-600 text-lg"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="socialtrading.html" class="flex items-center gap-3 p-3 rounded-xl bg-lime-50 dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-sm">
+                <i class="ph-fill ph-robot text-lime-600 text-lg"></i>
+                <span>Social Trading & Bots IA</span>
+            </a>
+            <a href="links.html" class="flex items-center gap-3 p-3 rounded-xl bg-lime-50 dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-sm">
+                <i class="ph-fill ph-link text-lime-600 text-lg"></i>
+                <span>Enlaces & Recursos (TAG Markets)</span>
+            </a>
+            <a href="trading_dashboard_pro.html" class="flex items-center gap-3 p-3 rounded-xl bg-lime-50 dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-sm">
+                <i class="ph-fill ph-layout text-lime-600 text-lg"></i>
+                <span>Demo Plataforma Pro</span>
+            </a>
+            <a href="auth.html?mode=register" class="flex items-center justify-center gap-2 p-3.5 rounded-xl lime-btn-primary font-black text-sm shadow-md mt-2">
+                <span>🚀 ¡Quiero Acceder Gratis!</span>
+            </a>
         </div>
     </header>
 
@@ -582,6 +610,11 @@
         } else {
             document.documentElement.classList.remove('dark');
             document.documentElement.classList.add('light');
+        }
+
+        function toggleMobilePortalMenu() {
+            const drawer = document.getElementById('mobile-portal-drawer');
+            if (drawer) drawer.classList.toggle('hidden');
         }
 
         function filterLinksGlobal(query) {

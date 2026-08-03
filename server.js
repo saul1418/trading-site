@@ -38,7 +38,20 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve static files from project root (still kept for convenience during dev)
+// Domain routing middleware for root '/'
+app.get('/', (req, res) => {
+  const host = (req.headers.host || '').toLowerCase();
+  
+  // If domain is bigwinners.vip or winwinner.vip -> serve TAG Markets & IA Tech portal
+  if (host.includes('bigwinners') || host.includes('winwinner')) {
+    return res.sendFile(path.join(__dirname, 'tagmarkets_portal.html'));
+  }
+  
+  // Default for tradingconproposito.lat or localhost -> serve Vantage Broker portal
+  return res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Serve static files from project root
 app.use(express.static(__dirname));
 
 let mailTransport;

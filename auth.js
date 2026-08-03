@@ -333,8 +333,29 @@ function getQueryMode() {
     return mode === 'login' ? 'login' : 'register';
 }
 
+function setupDynamicPortalBackLinks() {
+    const params = new URLSearchParams(window.location.search);
+    const fromParam = params.get('from') || '';
+    const ref = document.referrer || '';
+
+    const backLink = document.getElementById('auth-back-link');
+    const backText = document.getElementById('auth-back-text');
+    const logoLink = document.getElementById('auth-logo-link');
+
+    if (fromParam === 'tagmarkets' || ref.includes('tagmarkets') || ref.includes('socialtrading')) {
+        if (backLink) backLink.href = 'tagmarkets_portal.html';
+        if (backText) backText.textContent = 'Volver al Portal TAG Markets';
+        if (logoLink) logoLink.href = 'tagmarkets_portal.html';
+    } else if (fromParam === 'vantage' || ref.includes('vantage') || ref.includes('index.html')) {
+        if (backLink) backLink.href = 'index.html';
+        if (backText) backText.textContent = 'Volver al Portal Vantage';
+        if (logoLink) logoLink.href = 'index.html';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initGoogleAuth();
+    setupDynamicPortalBackLinks();
     document.getElementById('auth-login-toggle').addEventListener('click', (e) => {
         e.preventDefault();
         setFormMode(!isLoginMode);

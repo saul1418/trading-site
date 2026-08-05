@@ -42,9 +42,9 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
   const host = (req.headers.host || '').toLowerCase();
   
-  // If domain is bigwinners.vip or winwinner.vip -> serve TAG Markets & IA Tech portal
+  // If domain is bigwinners.vip or winwinner.vip -> serve Social Trading Options (TAG Markets & IA Tech main page)
   if (host.includes('bigwinners') || host.includes('winwinner')) {
-    return res.sendFile(path.join(__dirname, 'tagmarkets_portal.html'));
+    return res.sendFile(path.join(__dirname, 'socialtrading.html'));
   }
   
   // Default for tradingconproposito.lat or localhost -> serve Vantage Broker portal
